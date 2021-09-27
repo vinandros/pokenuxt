@@ -10,6 +10,16 @@ export default {
   data() {
     return { test: 'hola' }
   },
+  head: {
+    title: 'Pokenuxt | Items',
+    meta: [
+      {
+        hid: 'items page',
+        name: 'items page',
+        content: 'pokemons items catalog'
+      }
+    ],
+  },
 }
 </script>
 

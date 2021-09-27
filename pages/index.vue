@@ -39,6 +39,16 @@ export default {
     )
     return { pokemons }
   },
+  head: {
+    title: 'Pokenuxt | Home',
+    meta: [
+      {
+        hid: 'main page',
+        name: 'main page',
+        content: 'pokemons catalog main page'
+      }
+    ],
+  },
 }
 </script>
 
