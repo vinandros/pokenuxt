@@ -1,5 +1,5 @@
 <template>
-    <h1 class="title">Games {{ test }}</h1>
+    <h1 class="title">Items {{ test }}</h1>
 </template>
 
 <script>

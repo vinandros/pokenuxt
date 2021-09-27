@@ -1,12 +1,21 @@
 <template>
   <div class="nav">
     <div class="logo">
-      <h1 class="title">Pokenuxt</h1>
+      <NuxtLink to="/games">
+        <h1 class="title">Pokenuxt</h1>
+      </NuxtLink>
     </div>
-    <div class="pages">
+    <div>
       <ul class="ul-links-container">
-        <li class="ul-link">Games</li>
-        <li class="ul-link">Items</li>
+        <li class="ul-link">
+          <NuxtLink to="/games">Games</NuxtLink>
+        </li>
+        <li class="ul-link">
+          <NuxtLink to="/items">Items</NuxtLink>
+        </li>
+         <li class="ul-link">
+          <NuxtLink to="/iems">404</NuxtLink>
+        </li>
       </ul>
     </div>
   </div>
@@ -37,9 +46,6 @@ export default {}
   text-shadow: -3px 0 var(--blue), 0 3px var(--blue), 3px 0 var(--blue),
     0 -3px var(--blue);
   margin: 0;
-}
-
-.pages {
 }
 
 .ul-links-container {

@@ -1,33 +1,28 @@
 <template>
   <div>
-    <PageContainer>
-      <div>
-        <ul class="ul-poke-list">
-          <li
-            v-for="pokemon in pokemons"
-            :key="pokemon.id"
-            class="li-poke-item"
-          >
-            <PokeItem :img-src="pokemon.image" :poke-name="pokemon.name" />
-          </li>
-        </ul>
-      </div>
-    </PageContainer>
+    <ul class="ul-poke-list">
+      <li
+        v-for="pokemon in pokemons"
+        :key="pokemon.id"
+        class="li-poke-item"
+      >
+        <PokeItem :img-src="pokemon.image" :poke-type="pokemon.type" :poke-name="pokemon.name" />
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import PageContainer from '../components/page-container'
 import PokeItem from '../components/poke-item'
 export default {
   name: 'App',
   components: {
-    PageContainer,
     PokeItem,
   },
+  layout: 'nav',
   async asyncData({ params, $http }) {
     const response = await $http.$get(
-      `${process.env.apiURL}/pokemon?offset=10&limit=10`
+      `${process.env.apiURL}/pokemon`
     )
     const pokemonsIDs = response.results
 
@@ -37,6 +32,7 @@ export default {
         pokeData = await $http.$get(pokemonId.url)
 
         pokeData.image = pokeData.sprites.other.dream_world.front_default
+        pokeData.type = pokeData.types[0].type.name;
         console.log(pokeData)
         return pokeData
       })
@@ -56,7 +52,8 @@ export default {
 }
 
 .li-poke-item {
-  width: 200px;
-  height: 200px;
+  margin: 10px 10px;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 </style>
