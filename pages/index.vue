@@ -33,7 +33,6 @@ export default {
 
         pokeData.image = pokeData.sprites.other.dream_world.front_default
         pokeData.type = pokeData.types[0].type.name;
-        console.log(pokeData)
         return pokeData
       })
     )

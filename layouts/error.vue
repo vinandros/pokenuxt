@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <h1 v-if="error.statusCode === 404">Page not found</h1>
@@ -7,12 +8,12 @@
 </template>
 
 <script>
+/* eslint-disable vue/require-default-prop */
   export default {
     layout: 'nav',
     props: {
         error: {
-            type: String,
-            default: 'Page not found',
+            type: Object,
         },
     }
   }

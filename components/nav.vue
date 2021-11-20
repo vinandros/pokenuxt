@@ -1,14 +1,14 @@
 <template>
   <div class="nav">
     <div class="logo">
-      <NuxtLink to="/games">
+      <NuxtLink to="/">
         <h1 class="title">Pokenuxt</h1>
       </NuxtLink>
     </div>
     <div>
       <ul class="ul-links-container">
         <li class="ul-link">
-          <NuxtLink to="/games">Games</NuxtLink>
+          <NuxtLink to="/locations">Locations</NuxtLink>
         </li>
         <li class="ul-link">
           <NuxtLink to="/items">Items</NuxtLink>

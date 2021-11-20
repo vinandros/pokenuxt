@@ -1,5 +1,5 @@
 <template>
-    <h1 class="title">Items {{ test }}</h1>
+    <h1 class="title">{{items}} </h1>
 </template>
 
 <script>
@@ -7,8 +7,24 @@ export default {
   name: 'App',
   components: {},
   layout: 'nav',
-  data() {
-    return { test: 'hola' }
+  async asyncData({ params, $http }) {
+    const response = await $http.$get(
+      `${process.env.apiURL}/item`
+    )
+    const itemsIDs = response.results
+
+    const items = await Promise.all(
+      itemsIDs.map(async (item) => {
+        let itemData = {}
+        itemData = await $http.$get(item.url)
+
+        itemData.image = itemData.sprites.default
+        itemData.name = itemData.names.filter((lang) => lang.language.name === 'en')[0];
+        console.log(itemData)
+        return itemData
+      })
+    )
+    return { items }
   },
   head: {
     title: 'Pokenuxt | Items',
@@ -28,3 +44,4 @@ export default {
   color: blue;
 }
 </style>
+
